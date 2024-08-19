@@ -26,9 +26,7 @@ const resetgame=()=>{
 
 boxes.forEach((box) => {
     box.addEventListener("click",() => {
-       console.log("box was clicked");
-        //    console.log (`button have clicked ${n} times`)
-        if (turnO) {
+               if (turnO) {
            box.innerText="O";
            turnO=false;
         }
@@ -39,9 +37,9 @@ boxes.forEach((box) => {
         box.disabled = true;
         count++;
 
-        let iswinner=checkWinner();
+        let isWinner = checkWinner();
 
-        if (count === 9 && !iswinner) {
+        if (count === 9 && !isWinner) {
             checkDraw();
           }
     });
@@ -81,10 +79,11 @@ const checkWinner = () => {
         if(pos1val===pos2val && pos2val===pos3val) {
             console.log("winner",pos1val);
             showWinner(pos1val);
+            return true;
         }
     }
   
   }
-}
+};
 newgame.addEventListener("click",resetgame)
 reset.addEventListener("click",resetgame)
